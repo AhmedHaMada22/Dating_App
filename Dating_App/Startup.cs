@@ -1,4 +1,9 @@
+
 using Dating_App.Data;
+using Dating_App.Extensions;
+using Dating_App.Interfaces;
+using Dating_App.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,15 +13,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Dating_App
 {
     public class Startup
     {
+        private IConfiguration _config;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +36,10 @@ namespace Dating_App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationServices(_config);
             services.AddControllers();
+            services.AddIdentityServices(_config);
+            services.AddScoped<ITokenService, TokenService>();
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SqlCon"));
@@ -37,6 +49,8 @@ namespace Dating_App
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
+            
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +66,7 @@ namespace Dating_App
             app.UseRouting();
        
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
