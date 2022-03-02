@@ -24,14 +24,14 @@ namespace Dating_App
 {
     public class Startup
     {
-        private IConfiguration _config;
+     
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            _config = config;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration _config { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -39,11 +39,7 @@ namespace Dating_App
             services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddIdentityServices(_config);
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddDbContext<DataContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("SqlCon"));
-            });
+          
             services.AddCors(options => options.AddPolicy("CorsPolice", builder =>
             {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
@@ -64,9 +60,9 @@ namespace Dating_App
             app.UseHttpsRedirection();
 
             app.UseRouting();
-       
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
