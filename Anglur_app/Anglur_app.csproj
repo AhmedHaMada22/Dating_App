@@ -30,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="ClientApp\src\app\_model\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\_Services\Account.service.ts" />
   </ItemGroup>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'oidc-client';
+import { Observable } from 'rxjs';
 import { AccountService } from '../_Services/Account.service';
 
 @Component({
@@ -8,20 +10,25 @@ import { AccountService } from '../_Services/Account.service';
 })
 export class NavMenuComponent implements OnInit{
   model: any = {}
-  loggedIn: boolean;
+  currentUser$: Observable<User>;
 
   constructor(private accountService: AccountService) { }
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.currentUser$=this.accountService.currentUser$;
+  }
   login() {
     this.accountService.login(this.model).subscribe(response => {
       console.log(response);
-      this.loggedIn = true;
+ 
     }, error => {
       console.log(error);
     })
   }
 
   logout() {
-    this.loggedIn = false;
+    this.accountService.logout();
+    
   }
+
+ 
 }
