@@ -1,17 +1,18 @@
-<h1>Ahmed HaMada</h1>
+<div class="container mt-5" style="padding-top: 50px;" >
+  <div *ngIf="!registerMode" style='text-align: center; '>
+    <h1>Find your match</h1>
+    <p class="lead">Come on in to view your matches... all you need to do is sign up!</p>
+    <div class="text-center">
+      <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
+      <button class="btn btn-info btn-lg">Learn more</button>
+    </div>
+  </div>
 
-<div class="dropdown" mdbDropdown>
-
-  <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button"
-          mdbWavesEffect>
-    Dropdown primary
-  </button>
-
-
-  <div class="dropdown-menu dropdown-primary">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <a class="dropdown-item" href="#">Something else here</a>
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <!--<app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>-->
+      </div>
+    </div>
   </div>
 </div>
