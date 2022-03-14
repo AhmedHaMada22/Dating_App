@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RegisterComponent } from './register/register.component';
+import { MembersComponent } from './members/members.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ListsComponent } from './lists/lists.component';
 //import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @NgModule({
   declarations: [
@@ -17,8 +20,9 @@ import { RegisterComponent } from './register/register.component';
     NavMenuComponent,
     HomeComponent,
     RegisterComponent,
-    CounterComponent,
-    FetchDataComponent
+    MembersComponent,
+    MessagesComponent,
+    ListsComponent
   ],
   imports: [
     
@@ -28,9 +32,10 @@ import { RegisterComponent } from './register/register.component';
     //BsDropdownModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'members', component: MembersComponent },
+      { path: 'lists', component: ListsComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'messages', component: MessagesComponent },
     ])
   ],
   providers: [],
