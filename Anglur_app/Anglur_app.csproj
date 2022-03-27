@@ -31,12 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ClientApp\src\app\_model\User.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Remove="ClientApp\src\app\members\members_card.component.ts" />
     <None Remove="ClientApp\src\app\register\register.component.ts" />
     <None Remove="ClientApp\src\app\_Services\Account.service.ts" />
+    <None Remove="ClientApp\src\app\_Services\members.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

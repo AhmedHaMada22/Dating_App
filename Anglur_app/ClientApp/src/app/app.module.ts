@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { MembersComponent } from './members/members.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
+import { MemberCardsComponent } from './members/members_card.component';
 //import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListsComponent } from './lists/lists.component';
     RegisterComponent,
     MembersComponent,
     MessagesComponent,
-    ListsComponent
+    ListsComponent,
+    MemberCardsComponent
   ],
   imports: [
     
@@ -36,6 +38,8 @@ import { ListsComponent } from './lists/lists.component';
       { path: 'lists', component: ListsComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'messages', component: MessagesComponent },
+      { path: 'members', component: MemberCardsComponent },
+      
     ])
   ],
   providers: [],

@@ -1,0 +1,45 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="card mb-4">
+    <div class="card-img-wrapper">
+      <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="card-img-top">
+
+
+      <ul class="list-inline member-icons animate text-center">
+        <li class="list-inline-item">
+          <button class="btn btn-primary">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-danger">
+            <i class="glyphicon glyphicon-heart"></i>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-success">
+            <i class="glyphicon glyphicon-user"></i>
+          </button>
+       
+      </ul>
+    </div>
+    <div class="card-body p-1">
+      <h6 class="card-title text-center mb-1">
+
+        <i class="fa fa-user mr-2"></i>
+
+
+        {{member.knownAs}}, {{member.age}}
+      </h6>
+      <p class="card-text text-muted text-center">{{member.city}}</p>
+    </div>
+  </div>
+ 
+  
+</body>
+

@@ -1,3 +1,28 @@
-<h1>match</h1>
+<h1>Members</h1>
+<div class="row">
+  <div *ngFor="let member of Member" class="col-2">
+    <app-members_card [member]="member"></app-members_card>
+  </div>
+</div>
 
 
+<!--<table class='table table-striped' aria-labelledby="tableLabel" >
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>city</th>
+      <th>knownAs</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of Member">
+      <td>{{ member.id }}</td>
+      <td>{{ member.username }}</td>
+      <td>{{ member.city }}</td>
+      <td>{{ member.knownAs }}</td>
+      <td>{{ member.gender }}</td>
+    </tr>
+  </tbody>
+</table>-->
